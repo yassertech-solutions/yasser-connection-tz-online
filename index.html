@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="sw" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connection TZ | Obsidian VIP Lounge</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        obsidian: {
+                            950: '#07080B',
+                            900: '#0D0F14',
+                            800: '#151821',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #07080B;
+            color: #F8FAFC;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 12% 8%, rgba(16, 185, 129, 0.08) 0%, transparent 38%),
+                radial-gradient(circle at 88% 18%, rgba(245, 158, 11, 0.08) 0%, transparent 40%);
+        }
+        .glass-obsidian {
+            background: rgba(13, 15, 20, 0.78);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gold-emerald-text {
+            background: linear-gradient(135deg, #10B981 0%, #34D399 45%, #FBBF24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .story-ring {
+            background: conic-gradient(from 45deg, #10B981, #F59E0B, #EC4899, #10B981);
+        }
+        .input-obsidian:focus {
+            border-color: #10B981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-emerald-500 selection:text-black">
+
+    <!-- Custom Toast Notification Container -->
+    <div id="toast-container" class="fixed top-4 right-4 z-50 flex flex-col gap-2 max-w-xs sm:max-w-sm w-full pointer-events-none"></div>
+
+    <!-- ===================================================================== -->
+    <!-- 1. WELCOME / LOGIN GATE (OBSIDIAN & EMERALD-GOLD EDITION)             -->
+    <!-- ===================================================================== -->
+    <section id="login-gate" class="relative min-h-screen flex items-center justify-center p-4 sm:p-6 overflow-hidden">
+        <!-- Ambient Background Video -->
+        <video autoplay muted loop playsinline preload="metadata"
+            src="https://files.catbox.moe/k1ctvl#t=1"
+            class="absolute inset-0 w-full h-full object-cover opacity-20 scale-105 pointer-events-none">
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-b from-[#07080B]/80 via-[#07080B]/90 to-[#07080B]"></div>
+
+        <div class="relative z-10 w-full max-w-md space-y-5">
+            <!-- Top Profile & Brand Header -->
+            <div class="text-center space-y-3">
+                <div class="relative w-24 h-24 mx-auto">
+                    <div class="w-full h-full rounded-full p-1 story-ring shadow-2xl shadow-emerald-500/20">
+                        <img src="https://files.catbox.moe/zy7oco" alt="Connection TZ"
+                            onerror="this.src='https://placehold.co/150x150/0D0F14/10B981?text=CTZ'"
+                            class="w-full h-full rounded-full object-cover bg-[#07080B] border-2 border-[#07080B]">
+                    </div>
+                    <span class="absolute bottom-0 right-0 px-2 py-0.5 rounded-full bg-amber-500 text-black font-display font-bold text-[10px] uppercase tracking-wider shadow-lg">
+                        VIP
+                    </span>
+                </div>
+
+                <div>
+                    <h1 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white">
+                        CONNECTION <span class="gold-emerald-text">TZ</span>
+                    </h1>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-1">
+                        Karibu kwenye jukwaa la video kali. Ingiza <span class="text-emerald-400 font-semibold">Unlock Code</span> kuingia ndani.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Login Form Card -->
+            <form id="login-form" class="glass-obsidian rounded-3xl p-6 sm:p-7 space-y-4 shadow-2xl">
+                <!-- Jina -->
+                <div>
+                    <label for="user-name" class="block text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">
+                        Jina Lako (Full Name)
+                    </label>
+                    <div class="relative">
+                        <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-emerald-400 text-xs"></i>
+                        <input type="text" id="user-name" required placeholder="Andika jina lako..."
+                            class="w-full pl-10 pr-4 py-3 rounded-2xl bg-[#07080B]/90 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none input-obsidian transition">
+                    </div>
+                </div>
+
+                <!-- Namba ya Simu -->
+                <div>
+                    <label for="user-phone" class="block text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">
+                        Namba ya Simu (Phone Number)
+                    </label>
+                    <div class="relative">
+                        <i class="fa-solid fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-amber-400 text-xs"></i>
+                        <input type="tel" id="user-phone" required placeholder="Mfano: 0712 345 678"
+                            class="w-full pl-10 pr-4 py-3 rounded-2xl bg-[#07080B]/90 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none input-obsidian transition">
+                    </div>
+                </div>
+
+                <!-- Unlock Code -->
+                <div>
+                    <label for="unlock-code" class="block text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">
+                        Unlock Code
+                    </label>
+                    <div class="relative">
+                        <i class="fa-solid fa-key absolute left-4 top-1/2 -translate-y-1/2 text-emerald-400 text-xs"></i>
+                        <input type="password" id="unlock-code" required placeholder="Weka Unlock Code..."
+                            class="w-full pl-10 pr-11 py-3 rounded-2xl bg-[#07080B]/90 border border-white/10 text-white placeholder-gray-600 text-sm tracking-widest font-bold focus:outline-none input-obsidian transition">
+                        <button type="button" id="toggle-code-visibility" title="Onyesha/Ficha Code"
+                            class="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition">
+                            <i class="fa-solid fa-eye text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Error Alert -->
+                <div id="login-error" class="hidden p-3 rounded-2xl bg-rose-500/15 border border-rose-500/40 text-rose-200 text-xs flex items-start gap-2.5">
+                    <i class="fa-solid fa-circle-exclamation text-rose-400 mt-0.5"></i>
+                    <span>Unlock Code siyo sahihi! Njoo DM WhatsApp <strong class="text-white">+255 790 216 244</strong> kupata code yako sasa.</span>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-400 to-amber-400 hover:opacity-95 text-black font-display font-bold text-sm uppercase tracking-wider shadow-lg shadow-emerald-500/25 transition transform active:scale-[0.98] flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-unlock-keyhole"></i> Ingia Connection TZ
+                </button>
+
+                <!-- WhatsApp DM Request -->
+                <div class="pt-3 border-t border-white/10 text-center space-y-2.5">
+                    <p class="text-xs text-gray-400">Huna Unlock Code? Njoo DM moja kwa moja:</p>
+                    <a id="whatsapp-code-link" href="https://wa.me/255790216244?text=Habari%20Yasser%20Tech%2C%20naomba%20Unlock%20Code%20ya%20kuingia%20kwenye%20Connection%20TZ" target="_blank" rel="noopener noreferrer"
+                        class="w-full py-3 px-4 rounded-2xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/35 text-emerald-300 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition">
+                        <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i>
+                        <span>DM WhatsApp: +255 790 216 244</span>
+                    </a>
+                </div>
+            </form>
+
+            <!-- Powered By Footer -->
+            <div class="text-center">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-obsidian text-xs text-gray-400">
+                    <i class="fa-solid fa-bolt text-amber-400"></i>
+                    Powered by <strong class="gold-emerald-text font-extrabold">Yasser Tech</strong>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 2. NEW MAIN PAGE: APPLE TV+ / TIKTOK VIP BENTO LOUNGE                 -->
+    <!-- ===================================================================== -->
+    <div id="main-dashboard" class="hidden min-h-screen flex flex-col">
+
+        <!-- FLOATING TOP GLASS PILL NAVBAR -->
+        <header class="sticky top-0 z-30 pt-3 px-3 sm:px-6">
+            <div class="max-w-7xl mx-auto glass-obsidian rounded-2xl sm:rounded-full px-3 sm:px-5 py-2.5 shadow-2xl flex items-center justify-between gap-3">
+                <!-- Left: Profile Avatar + Brand -->
+                <div class="flex items-center gap-2.5 shrink-0 cursor-pointer" onclick="selectCategory('All')">
+                    <div class="w-9 h-9 rounded-full p-0.5 story-ring">
+                        <img src="https://files.catbox.moe/zy7oco" alt="Connection TZ"
+                            onerror="this.src='https://placehold.co/80x80/0D0F14/10B981?text=CTZ'"
+                            class="w-full h-full rounded-full object-cover bg-[#07080B]">
+                    </div>
+                    <div class="leading-none">
+                        <span class="font-display font-bold text-sm sm:text-base tracking-tight text-white block">
+                            CONNECTION <span class="gold-emerald-text">TZ</span>
+                        </span>
+                        <span class="text-[10px] text-gray-400 hidden sm:inline">VIP Stream</span>
+                    </div>
+                </div>
+
+                <!-- Center: Floating Category Switcher Pills (Desktop) -->
+                <nav class="hidden lg:flex items-center gap-1 bg-black/50 p-1 rounded-full border border-white/10">
+                    <button data-category="All" class="top-cat-pill active px-4 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-emerald-500 to-amber-400 text-black transition">
+                        All (28)
+                    </button>
+                    <button data-category="Free Video" class="top-cat-pill px-4 py-1.5 rounded-full text-xs font-semibold text-gray-300 hover:text-white transition">
+                        Free Video
+                    </button>
+                    <button data-category="Hot Video" class="top-cat-pill px-4 py-1.5 rounded-full text-xs font-semibold text-gray-300 hover:text-white transition">
+                        Hot Video
+                    </button>
+                    <button data-category="Bongo Connection" class="top-cat-pill px-4 py-1.5 rounded-full text-xs font-semibold text-gray-300 hover:text-white transition">
+                        Bongo Connection
+                    </button>
+                    <button data-category="Others" class="top-cat-pill px-4 py-1.5 rounded-full text-xs font-semibold text-gray-300 hover:text-white transition">
+                        Others
+                    </button>
+                </nav>
+
+                <!-- Right: Search Bar + User Chip + Logout -->
+                <div class="flex items-center gap-2">
+                    <div class="relative w-36 sm:w-52 md:w-60">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                        <input type="text" id="search-input" placeholder="Tafuta video..."
+                            class="w-full pl-8 pr-3 py-1.5 rounded-full bg-black/60 border border-white/10 text-xs text-white placeholder-gray-500 focus:outline-none input-obsidian transition">
+                    </div>
+
+                    <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span id="header-user-name" class="font-semibold text-gray-200 max-w-[90px] truncate">VIP</span>
+                    </div>
+
+                    <button id="logout-btn" title="Toka (Logout)"
+                        class="w-8 h-8 rounded-full bg-white/5 hover:bg-rose-500/20 border border-white/10 text-gray-300 hover:text-rose-400 flex items-center justify-center transition shrink-0">
+                        <i class="fa-solid fa-right-from-bracket text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Category Pills Bar -->
+            <div class="flex lg:hidden items-center gap-2 overflow-x-auto no-scrollbar max-w-7xl mx-auto pt-2.5 pb-1">
+                <button data-category="All" class="mob-cat-pill active px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-gradient-to-r from-emerald-500 to-amber-400 text-black">
+                    All Videos
+                </button>
+                <button data-category="Free Video" class="mob-cat-pill px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap glass-obsidian text-gray-300">
+                    Free Video
+                </button>
+                <button data-category="Hot Video" class="mob-cat-pill px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap glass-obsidian text-gray-300">
+                    Hot Video
+                </button>
+                <button data-category="Bongo Connection" class="mob-cat-pill px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap glass-obsidian text-gray-300">
+                    Bongo Connection
+                </button>
+                <button data-category="Others" class="mob-cat-pill px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap glass-obsidian text-gray-300">
+                    Others
+                </button>
+            </div>
+        </header>
+
+        <!-- MAIN PAGE WORKSPACE -->
+        <main class="flex-grow max-w-7xl w-full mx-auto px-3 sm:px-6 py-5 space-y-8">
+
+            <!-- 1. TOP HORIZONTAL "VIP STORIES / QUICK REELS" STRIP -->
+            <section class="space-y-2.5">
+                <div class="flex items-center justify-between px-1">
+                    <span class="text-xs font-bold uppercase tracking-widest text-gray-400 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-amber-400"></span> VIP Quick Stories
+                    </span>
+                    <span class="text-[11px] text-emerald-400 font-semibold">Bonyeza kucheza papo hapo</span>
+                </div>
+                <div id="vip-stories-strip" class="flex items-center gap-3.5 overflow-x-auto no-scrollbar pb-1">
+                    <!-- Story rings injected dynamically -->
+                </div>
+            </section>
+
+            <!-- 2. INTERACTIVE SPLIT-STAGE BENTO SPOTLIGHT (Shown on 'All' view without search) -->
+            <section id="bento-spotlight" class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+                <!-- Left (65% -> 8 cols): Live Interactive Mini-Theater Stage -->
+                <div class="lg:col-span-8 glass-obsidian rounded-3xl overflow-hidden border border-white/10 flex flex-col justify-between shadow-2xl">
+                    <div class="relative aspect-video bg-black overflow-hidden group">
+                        <video id="stage-video" autoplay muted loop playsinline preload="metadata"
+                            src="https://files.catbox.moe/k1ctvl"
+                            class="w-full h-full object-cover">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#07080B] via-transparent to-black/40 pointer-events-none"></div>
+
+                        <!-- Top Stage Badges -->
+                        <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="px-3 py-1 rounded-full bg-emerald-500 text-black font-display font-bold text-[10px] uppercase tracking-wider shadow-lg">
+                                    <i class="fa-solid fa-circle-play mr-1"></i> Spotlight Stage
+                                </span>
+                                <span id="stage-category-badge" class="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-amber-300 text-[11px] font-bold">
+                                    Bongo Connection
+                                </span>
+                            </div>
+
+                            <!-- Mute / Unmute Quick Toggle -->
+                            <button id="stage-mute-btn" title="Washa/Zima Sauti"
+                                class="w-9 h-9 rounded-full bg-black/70 hover:bg-emerald-500 hover:text-black border border-white/15 text-white flex items-center justify-center transition">
+                                <i id="stage-mute-icon" class="fa-solid fa-volume-xmark text-xs"></i>
+                            </button>
+                        </div>
+
+                        <!-- Bottom Stage Overlay Info & Fullscreen Button -->
+                        <div class="absolute bottom-3.5 left-3.5 right-3.5 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+                            <div class="max-w-lg">
+                                <h2 id="stage-title" class="font-display text-lg sm:text-2xl font-bold text-white leading-tight">
+                                    Bongo Connection #01: Dar es Salaam Exclusive
+                                </h2>
+                                <p id="stage-desc" class="text-xs text-gray-300 mt-1 line-clamp-1">
+                                    Connection mpya kabisa ya mjini Dar es Salaam. Tazama sasa moja kwa moja kwa ubora wa HD.
+                                </p>
+                            </div>
+                            <button id="stage-fullscreen-btn"
+                                class="px-4 py-2.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-amber-400 hover:opacity-95 text-black font-display font-bold text-xs flex items-center justify-center gap-2 shadow-xl shrink-0 transition active:scale-95">
+                                <i class="fa-solid fa-expand"></i> Watch Fullscreen
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right (35% -> 4 cols): VIP Queue + Yasser Tech Host Card -->
+                <div class="lg:col-span-4 flex flex-col justify-between gap-4">
+                    <!-- Up Next / VIP Queue Playlist -->
+                    <div class="glass-obsidian rounded-3xl p-4 border border-white/10 flex-grow flex flex-col">
+                        <div class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-white/10">
+                            <h3 class="font-display text-sm font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-list-ul text-emerald-400"></i> Up Next • VIP Queue
+                            </h3>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300">Auto-Pick</span>
+                        </div>
+                        <div id="vip-queue-list" class="space-y-2 overflow-y-auto max-h-[210px] pr-1 no-scrollbar">
+                            <!-- Queue items injected dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Yasser Tech VIP Host Card -->
+                    <div class="glass-obsidian rounded-3xl p-4 border border-emerald-500/30 bg-gradient-to-br from-emerald-950/40 to-[#0D0F14] flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <img src="https://files.catbox.moe/zy7oco" alt="Yasser Tech"
+                                onerror="this.src='https://placehold.co/80x80/0D0F14/10B981?text=YT'"
+                                class="w-11 h-11 rounded-2xl object-cover border border-amber-400 shrink-0">
+                            <div class="truncate">
+                                <p class="text-xs font-extrabold text-white truncate">CONNECTION TZ VIP</p>
+                                <p class="text-[11px] text-emerald-400 truncate">Powered by Yasser Tech</p>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/255790216244?text=Habari%20Yasser%20Tech%2C%20nipo%20ndani%20ya%20Connection%20TZ" target="_blank" rel="noopener noreferrer"
+                            class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs flex items-center gap-1.5 shrink-0 transition">
+                            <i class="fa-brands fa-whatsapp text-sm"></i> DM
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. CURATED CATEGORY SHELVES (When 'All' is active) -->
+            <section id="category-shelves-container" class="space-y-8">
+                <!-- Shelves for Free Video, Hot Video, Bongo Connection, Others injected dynamically -->
+            </section>
+
+            <!-- 4. FILTERED CATEGORY / SEARCH GALLERY VIEW (When a specific category or search is active) -->
+            <section id="filtered-gallery-section" class="hidden space-y-4">
+                <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                    <div class="flex items-center gap-3">
+                        <button onclick="selectCategory('All')" class="w-8 h-8 rounded-full glass-obsidian hover:bg-white/10 flex items-center justify-center text-gray-300 text-xs transition" title="Rudi Nyuma">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <h3 id="filtered-title" class="font-display text-lg sm:text-xl font-bold text-white">Category</h3>
+                    </div>
+                    <span id="filtered-count" class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300">
+                        7 Videos
+                    </span>
+                </div>
+
+                <div id="filtered-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                    <!-- Filtered cards injected dynamically -->
+                </div>
+
+                <!-- Empty Search State -->
+                <div id="empty-state" class="hidden py-16 text-center glass-obsidian rounded-3xl">
+                    <i class="fa-solid fa-film text-4xl text-gray-600 mb-3"></i>
+                    <h4 class="text-base font-bold text-gray-200">Hakuna video iliyopatikana</h4>
+                    <p class="text-xs text-gray-500 mt-1">Jaribu neno lingine au rudi kwenye All Videos.</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="border-t border-white/10 bg-[#090A0E] py-6 px-4 sm:px-6 mt-12">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+                <div class="flex items-center gap-2.5">
+                    <img src="https://files.catbox.moe/zy7oco" alt="Connection TZ" onerror="this.style.display='none'" class="w-6 h-6 rounded-full object-cover border border-emerald-500">
+                    <span class="font-display font-bold text-white tracking-wide">CONNECTION <span class="gold-emerald-text">TZ</span></span>
+                    <span>&copy; 2026</span>
+                </div>
+                <div class="flex flex-wrap items-center justify-center gap-3">
+                    <a href="https://wa.me/255790216244?text=Habari%20Yasser%20Tech" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline font-semibold flex items-center gap-1.5">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> +255 790 216 244
+                    </a>
+                    <span class="text-gray-700">|</span>
+                    <span class="px-3.5 py-1 rounded-full glass-obsidian">
+                        Powered by <strong class="gold-emerald-text font-extrabold">Yasser Tech</strong>
+                    </span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- FULL-SCREEN CINEMA MODAL PLAYER                                       -->
+    <!-- ===================================================================== -->
+    <div id="player-modal" class="hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+        <div class="glass-obsidian rounded-3xl max-w-4xl w-full overflow-hidden border border-white/15 shadow-2xl my-auto">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-4 sm:px-6 py-3.5 border-b border-white/10">
+                <div class="flex items-center gap-2.5 truncate pr-4">
+                    <span id="modal-video-cat" class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-emerald-500 text-black shrink-0">Category</span>
+                    <h3 id="modal-video-title" class="font-display text-sm sm:text-base font-bold text-white truncate">Video Title</h3>
+                </div>
+                <button id="close-player-btn" class="w-9 h-9 rounded-full bg-white/10 hover:bg-rose-500 text-gray-300 hover:text-white flex items-center justify-center transition shrink-0">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Video Player Viewport -->
+            <div class="relative aspect-video bg-black flex items-center justify-center">
+                <video id="modal-video-element" controls playsinline class="w-full h-full object-contain bg-black">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <!-- Info & Controls Bar -->
+            <div class="p-4 sm:p-5 bg-[#090A0E] space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <p id="modal-video-desc" class="text-xs sm:text-sm text-gray-300">Maelezo ya video.</p>
+                        <div class="flex flex-wrap items-center gap-4 mt-2 text-xs text-gray-400">
+                            <span><i class="fa-solid fa-eye text-emerald-400 mr-1"></i> <span id="modal-video-views">12K</span> Views</span>
+                            <span><i class="fa-solid fa-clock text-amber-400 mr-1"></i> <span id="modal-video-duration">04:20</span></span>
+                            <a href="https://wa.me/255790216244?text=Habari%20Yasser%20Tech%2C%20nimependa%20video%20kwenye%20Connection%20TZ" target="_blank" rel="noopener noreferrer"
+                                class="text-emerald-400 hover:underline font-semibold">
+                                <i class="fa-brands fa-whatsapp mr-1"></i> Omba Video Zaidi (+255 790 216 244)
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 shrink-0">
+                        <button id="prev-video-btn" class="px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-xs font-bold text-gray-200 transition">
+                            <i class="fa-solid fa-backward-step mr-1"></i> Iliyopita
+                        </button>
+                        <button id="next-video-btn" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-amber-400 hover:opacity-90 text-xs font-extrabold text-black transition">
+                            Inayofuata <i class="fa-solid fa-forward-step ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Related Category Videos Strip Inside Modal -->
+                <div class="pt-3 border-t border-white/10">
+                    <p class="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-2">Video Nyingine Kwenye Category Hii:</p>
+                    <div id="modal-related-strip" class="flex gap-2.5 overflow-x-auto no-scrollbar pb-1">
+                        <!-- Related thumbnails injected dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- JAVASCRIPT APPLICATION LOGIC                                          -->
+    <!-- ===================================================================== -->
+    <script>
+        // Valid VIP Unlock Codes
+        const VALID_UNLOCK_CODES = ['YASSER2026', 'TZVIP', 'CONNECTION255', 'YASSER01'];
+
+        // Exact 28 Catbox Videos Distributed Evenly Across 4 Categories (7 per Category)
+        const VIDEOS = [
+            // --- FREE VIDEO (7) ---
+            { id: 'free-1', title: 'Free Video #01: Bongo Street Vibes & Dance', category: 'Free Video', duration: '03:45', views: '12.4K', videoUrl: 'https://files.catbox.moe/en4p9q', description: 'Burudani ya bure kabisa kutoka Connection TZ kwa wanachama wote.' },
+            { id: 'free-2', title: 'Free Video #02: Weekend Chill & Comedy Clips', category: 'Free Video', duration: '04:12', views: '9.8K', videoUrl: 'https://files.catbox.moe/vludi1', description: 'Vichekesho na matukio ya kuvutia bila malipo yoyote.' },
+            { id: 'free-3', title: 'Free Video #03: Dar City Cruising & Beats', category: 'Free Video', duration: '02:58', views: '15.1K', videoUrl: 'https://files.catbox.moe/rb3471', description: 'Mitaa ya Dar es Salaam na burudani ya bure.' },
+            { id: 'free-4', title: 'Free Video #04: Trending TikTok & Reels TZ', category: 'Free Video', duration: '03:20', views: '18.6K', videoUrl: 'https://files.catbox.moe/1b3ecf', description: 'Mkusanyiko wa video zinazotrend zaidi mitandaoni Tanzania.' },
+            { id: 'free-5', title: 'Free Video #05: Bongo Flava Freestyle Session', category: 'Free Video', duration: '05:04', views: '7.9K', videoUrl: 'https://files.catbox.moe/6p4e8m', description: 'Vipaji vipya na mistari mikali ya Bongo.' },
+            { id: 'free-6', title: 'Free Video #06: Sunset Beach Hangout TZ', category: 'Free Video', duration: '04:36', views: '11.2K', videoUrl: 'https://files.catbox.moe/47s677', description: 'Mandhari nzuri ya ufukweni na burudani ya bure.' },
+            { id: 'free-7', title: 'Free Video #07: Viral Moments Compilation', category: 'Free Video', duration: '03:51', views: '14.0K', videoUrl: 'https://files.catbox.moe/v7rpex', description: 'Matukio yaliyotikisa wiki hii kwenye Connection TZ.' },
+
+            // --- HOT VIDEO (7) ---
+            { id: 'hot-1', title: 'Hot Video #01: Exclusive Midnight Party VIP', category: 'Hot Video', duration: '06:15', views: '34.7K', videoUrl: 'https://files.catbox.moe/cqgs1f', description: 'Video kali ya usiku yenye vibe ya kipekee kwa VIP pekee.' },
+            { id: 'hot-2', title: 'Hot Video #02: Late Night Club Heat', category: 'Hot Video', duration: '05:42', views: '41.2K', videoUrl: 'https://files.catbox.moe/c1xi6d', description: 'Matukio moto moto kutoka VIP lounge usiku mnene.' },
+            { id: 'hot-3', title: 'Hot Video #03: Private Poolside Afterparty', category: 'Hot Video', duration: '07:10', views: '28.9K', videoUrl: 'https://files.catbox.moe/kofuf9', description: 'Afterparty ya kibabe yenye burudani isiyo na kikomo.' },
+            { id: 'hot-4', title: 'Hot Video #04: Uncensored VIP Lounge Vibe', category: 'Hot Video', duration: '04:55', views: '39.5K', videoUrl: 'https://files.catbox.moe/ucv7jy', description: 'Video inayotazamwa zaidi kwenye kipengele cha Hot Video.' },
+            { id: 'hot-5', title: 'Hot Video #05: Red Carpet & Penthouse Night', category: 'Hot Video', duration: '06:38', views: '25.3K', videoUrl: 'https://files.catbox.moe/o40pvz', description: 'Maisha ya kifahari na matukio makali ya usiku.' },
+            { id: 'hot-6', title: 'Hot Video #06: Exclusive Dancefloor Fire', category: 'Hot Video', duration: '05:19', views: '31.8K', videoUrl: 'https://files.catbox.moe/ezk7y6', description: 'Show kali iliyowasha moto ukumbini.' },
+            { id: 'hot-7', title: 'Hot Video #07: Midnight Secret Session', category: 'Hot Video', duration: '08:02', views: '46.1K', videoUrl: 'https://files.catbox.moe/lwx3lh', description: 'Kipande adimu cha VIP kilichovuja hivi punde.' },
+
+            // --- BONGO CONNECTION (7) ---
+            { id: 'bongo-1', title: 'Bongo Connection #01: Dar es Salaam Exclusive', category: 'Bongo Connection', duration: '07:25', views: '52.4K', videoUrl: 'https://files.catbox.moe/k1ctvl', description: 'Connection mpya kabisa ya mjini Dar es Salaam.' },
+            { id: 'bongo-2', title: 'Bongo Connection #02: Masaki & Oysterbay Linkup', category: 'Bongo Connection', duration: '06:48', views: '44.9K', videoUrl: 'https://files.catbox.moe/n6myx6', description: 'Matukio ya siri kutoka Masaki na Oysterbay.' },
+            { id: 'bongo-3', title: 'Bongo Connection #03: Sinza & Kinondoni Leaks', category: 'Bongo Connection', duration: '05:50', views: '61.0K', videoUrl: 'https://files.catbox.moe/wuw75f', description: 'Connection kali inayozungumziwa zaidi Kinondoni.' },
+            { id: 'bongo-4', title: 'Bongo Connection #04: Zanzibar Villa Retreat', category: 'Bongo Connection', duration: '08:14', views: '37.2K', videoUrl: 'https://files.catbox.moe/ue60ss', description: 'Safari ya siri visiwani Zanzibar na matukio yake.' },
+            { id: 'bongo-5', title: 'Bongo Connection #05: Arusha Nightlife Connect', category: 'Bongo Connection', duration: '06:09', views: '29.4K', videoUrl: 'https://files.catbox.moe/1r3iy2', description: 'Vibe ya A-Town na connection za kibabe.' },
+            { id: 'bongo-6', title: 'Bongo Connection #06: Mwanza Rock City Exclusive', category: 'Bongo Connection', duration: '07:03', views: '33.8K', videoUrl: 'https://files.catbox.moe/qpxzr6', description: 'Kutoka kanda ya ziwa Mwanza mpaka kwenye simu yako.' },
+            { id: 'bongo-7', title: 'Bongo Connection #07: Dodoma VIP Weekend', category: 'Bongo Connection', duration: '05:37', views: '40.5K', videoUrl: 'https://files.catbox.moe/hilwcw', description: 'Yaliyojiri mji mkuu Dodoma wikendi hii.' },
+
+            // --- OTHERS (7) ---
+            { id: 'others-1', title: 'Others #01: Luxury Supercars & Lifestyle', category: 'Others', duration: '04:40', views: '16.2K', videoUrl: 'https://files.catbox.moe/nm1y9s.mp4', description: 'Magari makali, burudani na maisha ya kisasa.' },
+            { id: 'others-2', title: 'Others #02: Yasser Tech Special Showcase', category: 'Others', duration: '05:15', views: '19.7K', videoUrl: 'https://files.catbox.moe/9rgymr.mp4', description: 'Video maalum iliyoandaliwa kwa ajili ya wanachama wa Connection TZ.' },
+            { id: 'others-3', title: 'Others #03: Global Trends & Action Clips', category: 'Others', duration: '03:58', views: '13.4K', videoUrl: 'https://files.catbox.moe/o6k6fu.mp4', description: 'Matukio mbalimbali ya kusisimua kutoka duniani kote.' },
+            { id: 'others-4', title: 'Others #04: Night Drive & Neon Aesthetics', category: 'Others', duration: '06:22', views: '21.0K', videoUrl: 'https://files.catbox.moe/j4zpjm.mp4', description: 'Muziki mzuri na safari za usiku.' },
+            { id: 'others-5', title: 'Others #05: Exclusive Travel & Exotic Places', category: 'Others', duration: '05:49', views: '14.8K', videoUrl: 'https://files.catbox.moe/4pthrr.mp4', description: 'Maeneo mazuri ya utalii na starehe.' },
+            { id: 'others-6', title: 'Others #06: Urban Street Culture & Style', category: 'Others', duration: '04:17', views: '11.5K', videoUrl: 'https://files.catbox.moe/mfi7b4.mp4', description: 'Mitindo, muziki na utamaduni wa kisasa.' },
+            { id: 'others-7', title: 'Others #07: Bonus VIP Collection Finale', category: 'Others', duration: '06:54', views: '24.3K', videoUrl: 'https://files.catbox.moe/gfnhhg.mp4', description: 'Video ya ziada ya kufunga mkusanyiko wa wiki hii.' }
+        ];
+
+        const CATEGORIES = [
+            { name: 'Free Video', subtitle: 'Burudani ya bure kabisa kwa kila mdau', icon: 'fa-gift', accent: 'text-emerald-400' },
+            { name: 'Hot Video', subtitle: 'Video moto moto zinazotrend VIP', icon: 'fa-fire', accent: 'text-rose-400' },
+            { name: 'Bongo Connection', subtitle: 'Connection kali za Bongo na mikoani', icon: 'fa-bolt', accent: 'text-amber-400' },
+            { name: 'Others', subtitle: 'Mkusanyiko wa video nyinginezo za kipekee', icon: 'fa-film', accent: 'text-purple-400' }
+        ];
+
+        let activeCategory = 'All';
+        let searchQuery = '';
+        let stageCurrentVideo = VIDEOS[14]; // Default: Bongo Connection #01
+        let activePlaylist = [...VIDEOS];
+        let currentPlayingIndex = 0;
+
+        // DOM Elements
+        const loginGate = document.getElementById('login-gate');
+        const mainDashboard = document.getElementById('main-dashboard');
+        const loginForm = document.getElementById('login-form');
+        const loginError = document.getElementById('login-error');
+        const stageVideoEl = document.getElementById('stage-video');
+        const stageMuteBtn = document.getElementById('stage-mute-btn');
+        const stageMuteIcon = document.getElementById('stage-mute-icon');
+
+        // Custom Toast Notification
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            const styles = type === 'success'
+                ? 'bg-emerald-950/95 border-emerald-500/50 text-emerald-200'
+                : 'bg-rose-950/95 border-rose-500/50 text-rose-200';
+            const icon = type === 'success' ? 'fa-circle-check text-emerald-400' : 'fa-circle-exclamation text-rose-400';
+
+            toast.className = `pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-2xl border backdrop-blur-md shadow-2xl text-xs font-semibold transition-all duration-300 ${styles}`;
+            toast.innerHTML = `<i class="fa-solid ${icon} text-base"></i><span>${message}</span>`;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', '-translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        // Dynamic WhatsApp Link Builder
+        function updateWhatsAppLink() {
+            const nameVal = document.getElementById('user-name').value.trim();
+            const phoneVal = document.getElementById('user-phone').value.trim();
+            const waLink = document.getElementById('whatsapp-code-link');
+            let msg = 'Habari Yasser Tech, naomba Unlock Code ya kuingia kwenye Connection TZ.';
+            if (nameVal || phoneVal) {
+                msg += ` Jina langu: ${nameVal || 'Mteja'}, Namba: ${phoneVal || 'N/A'}`;
+            }
+            waLink.href = `https://wa.me/255790216244?text=${encodeURIComponent(msg)}`;
+        }
+        document.getElementById('user-name').addEventListener('input', updateWhatsAppLink);
+        document.getElementById('user-phone').addEventListener('input', updateWhatsAppLink);
+
+        // Toggle Password Visibility
+        document.getElementById('toggle-code-visibility').addEventListener('click', function () {
+            const codeInput = document.getElementById('unlock-code');
+            const icon = this.querySelector('i');
+            if (codeInput.type === 'password') {
+                codeInput.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                codeInput.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        });
+
+        // Session Persistence Check
+        function checkSession() {
+            const session = localStorage.getItem('connection_tz_user');
+            if (session) {
+                try {
+                    const user = JSON.parse(session);
+                    if (user && user.name && user.code && VALID_UNLOCK_CODES.includes(user.code.toUpperCase())) {
+                        unlockDashboard(user);
+                    } else {
+                        localStorage.removeItem('connection_tz_user');
+                    }
+                } catch (e) {
+                    localStorage.removeItem('connection_tz_user');
+                }
+            }
+        }
+
+        // Initialize Dashboard
+        function unlockDashboard(user) {
+            loginGate.classList.add('hidden');
+            mainDashboard.classList.remove('hidden');
+            document.getElementById('header-user-name').textContent = user.name.split(' ')[0];
+
+            renderVipStories();
+            renderVipQueue();
+            renderCategoryShelves();
+        }
+
+        // 1. Render VIP Quick Stories Strip
+        function renderVipStories() {
+            const strip = document.getElementById('vip-stories-strip');
+            const storyPicks = [
+                VIDEOS[14], // Bongo 1
+                VIDEOS[7],  // Hot 1
+                VIDEOS[0],  // Free 1
+                VIDEOS[16], // Bongo 3
+                VIDEOS[9],  // Hot 3
+                VIDEOS[22], // Others 2
+                VIDEOS[3],  // Free 4
+                VIDEOS[13], // Hot 7
+                VIDEOS[18], // Bongo 5
+                VIDEOS[25]  // Others 5
+            ];
+
+            strip.innerHTML = '';
+            storyPicks.forEach(video => {
+                const btn = document.createElement('button');
+                btn.className = 'group flex flex-col items-center gap-1.5 shrink-0 w-20 text-center focus:outline-none';
+                btn.onclick = () => openPlayerByVideoId(video.id, VIDEOS);
+
+                btn.innerHTML = `
+                    <div class="w-16 h-16 rounded-full p-0.5 story-ring group-hover:scale-105 transition-transform shadow-lg">
+                        <div class="w-full h-full rounded-full overflow-hidden bg-[#0D0F14] border-2 border-[#07080B] relative">
+                            <video src="${video.videoUrl}#t=2" preload="metadata" muted playsinline
+                                class="w-full h-full object-cover pointer-events-none">
+                            </video>
+                            <div class="absolute inset-0 bg-black/25 flex items-center justify-center">
+                                <i class="fa-solid fa-play text-white text-[10px] drop-shadow"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-semibold text-gray-300 group-hover:text-emerald-400 truncate w-full transition">
+                        ${video.category}
+                    </span>
+                `;
+                strip.appendChild(btn);
+            });
+        }
+
+        // 2. Interactive Split-Stage Controls & VIP Queue
+        function setSpotlightStage(video) {
+            stageCurrentVideo = video;
+            stageVideoEl.src = video.videoUrl;
+            stageVideoEl.play().catch(() => {});
+            document.getElementById('stage-category-badge').textContent = video.category;
+            document.getElementById('stage-title').textContent = video.title;
+            document.getElementById('stage-desc').textContent = video.description;
+            renderVipQueue();
+        }
+
+        stageMuteBtn.addEventListener('click', () => {
+            stageVideoEl.muted = !stageVideoEl.muted;
+            if (stageVideoEl.muted) {
+                stageMuteIcon.className = 'fa-solid fa-volume-xmark text-xs';
+            } else {
+                stageMuteIcon.className = 'fa-solid fa-volume-high text-xs text-emerald-400';
+            }
+        });
+
+        document.getElementById('stage-fullscreen-btn').addEventListener('click', () => {
+            stageVideoEl.muted = true;
+            stageMuteIcon.className = 'fa-solid fa-volume-xmark text-xs';
+            openPlayerByVideoId(stageCurrentVideo.id, VIDEOS);
+        });
+
+        function renderVipQueue() {
+            const queueContainer = document.getElementById('vip-queue-list');
+            const queuePicks = [VIDEOS[14], VIDEOS[7], VIDEOS[15], VIDEOS[10], VIDEOS[0], VIDEOS[22], VIDEOS[19]];
+
+            queueContainer.innerHTML = '';
+            queuePicks.forEach(video => {
+                const isActive = video.id === stageCurrentVideo.id;
+                const row = document.createElement('div');
+                row.className = `flex items-center gap-3 p-2 rounded-2xl cursor-pointer transition border ${
+                    isActive
+                        ? 'bg-emerald-500/15 border-emerald-500/40'
+                        : 'bg-white/[0.03] hover:bg-white/[0.08] border-transparent'
+                }`;
+                row.onclick = () => setSpotlightStage(video);
+
+                row.innerHTML = `
+                    <div class="relative w-20 aspect-video rounded-xl overflow-hidden bg-black shrink-0">
+                        <video src="${video.videoUrl}#t=1.5" preload="metadata" muted playsinline class="w-full h-full object-cover pointer-events-none"></video>
+                        <span class="absolute bottom-1 right-1 px-1 rounded bg-black/80 text-[9px] font-bold text-white">${video.duration}</span>
+                    </div>
+                    <div class="min-w-0 flex-1">
+                        <p class="text-xs font-bold ${isActive ? 'text-emerald-300' : 'text-white'} truncate">${video.title}</p>
+                        <p class="text-[10px] text-gray-400 mt-0.5">${video.category} • ${video.views}</p>
+                    </div>
+                    <div class="shrink-0 text-xs ${isActive ? 'text-emerald-400' : 'text-gray-500'}">
+                        <i class="fa-solid ${isActive ? 'fa-volume-high' : 'fa-play'}"></i>
+                    </div>
+                `;
+                queueContainer.appendChild(row);
+            });
+        }
+
+        // Helper to build a Video Card element
+        function createVideoCard(video, playlistContext) {
+            let pillStyle = 'bg-amber-500/20 text-amber-300 border-amber-500/35';
+            if (video.category === 'Free Video') pillStyle = 'bg-emerald-500/20 text-emerald-300 border-emerald-500/35';
+            if (video.category === 'Hot Video') pillStyle = 'bg-rose-500/20 text-rose-300 border-rose-500/35';
+            if (video.category === 'Others') pillStyle = 'bg-purple-500/20 text-purple-300 border-purple-500/35';
+
+            const card = document.createElement('article');
+            card.className = 'group glass-obsidian rounded-2xl overflow-hidden border border-white/10 hover:border-emerald-400/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-500/10 flex flex-col cursor-pointer';
+            card.onclick = () => openPlayerByVideoId(video.id, playlistContext);
+
+            card.innerHTML = `
+                <div class="relative aspect-video bg-black overflow-hidden">
+                    <video src="${video.videoUrl}#t=1.5" preload="metadata" muted playsinline loop
+                        class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+                    </video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0D0F14] via-transparent to-black/30"></div>
+
+                    <div class="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border backdrop-blur-md ${pillStyle}">
+                            ${video.category}
+                        </span>
+                        <span class="px-2 py-0.5 rounded-md bg-black/80 text-white text-[10px] font-bold">
+                            ${video.duration}
+                        </span>
+                    </div>
+
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-11 h-11 rounded-full bg-black/50 group-hover:bg-emerald-500 group-hover:text-black backdrop-blur-md border border-white/25 flex items-center justify-center text-white shadow-xl transition-all duration-300 group-hover:scale-110">
+                            <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 flex-grow flex flex-col justify-between space-y-2.5">
+                    <div>
+                        <h4 class="font-display text-sm font-bold text-white group-hover:text-emerald-300 transition line-clamp-2 leading-snug">
+                            ${video.title}
+                        </h4>
+                        <p class="text-xs text-gray-400 mt-1 line-clamp-2">${video.description}</p>
+                    </div>
+                    <div class="pt-2 border-t border-white/5 flex items-center justify-between text-[11px] text-gray-400">
+                        <span><i class="fa-solid fa-eye text-emerald-400 mr-1"></i> ${video.views}</span>
+                        <span class="text-amber-300 font-bold">Cheza <i class="fa-solid fa-arrow-right text-[10px] ml-0.5"></i></span>
+                    </div>
+                </div>
+            `;
+
+            const vid = card.querySelector('video');
+            card.addEventListener('mouseenter', () => vid.play().catch(() => {}));
+            card.addEventListener('mouseleave', () => vid.pause());
+            return card;
+        }
+
+        // 3. Render Curated Category Shelves (All View)
+        function renderCategoryShelves() {
+            const container = document.getElementById('category-shelves-container');
+            container.innerHTML = '';
+
+            CATEGORIES.forEach(cat => {
+                const catVideos = VIDEOS.filter(v => v.category === cat.name);
+                const shelf = document.createElement('div');
+                shelf.className = 'space-y-3.5';
+
+                shelf.innerHTML = `
+                    <div class="flex items-end justify-between border-b border-white/10 pb-2.5">
+                        <div>
+                            <h3 class="font-display text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid ${cat.icon} ${cat.accent}"></i>
+                                <span>${cat.name}</span>
+                            </h3>
+                            <p class="text-xs text-gray-400">${cat.subtitle}</p>
+                        </div>
+                        <button onclick="selectCategory('${cat.name}')"
+                            class="px-3.5 py-1.5 rounded-full glass-obsidian hover:bg-white/10 text-xs font-bold text-emerald-300 flex items-center gap-1.5 shrink-0 transition">
+                            <span>Tazama Zote (${catVideos.length})</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="shelf-grid-${cat.name.replace(/\s+/g, '-')}">
+                    </div>
+                `;
+
+                container.appendChild(shelf);
+                const shelfGrid = shelf.querySelector(`#shelf-grid-${cat.name.replace(/\s+/g, '-')}`);
+                // Show top 4 per shelf on main overview; clicking "Tazama Zote" shows all 7
+                catVideos.slice(0, 4).forEach(video => {
+                    shelfGrid.appendChild(createVideoCard(video, catVideos));
+                });
+            });
+        }
+
+        // 4. Render Filtered Category or Search Gallery
+        function renderFilteredGallery() {
+            const filteredGrid = document.getElementById('filtered-grid');
+            const emptyState = document.getElementById('empty-state');
+            const filteredTitle = document.getElementById('filtered-title');
+            const filteredCount = document.getElementById('filtered-count');
+
+            const results = VIDEOS.filter(v => {
+                const matchCat = activeCategory === 'All' || v.category === activeCategory;
+                const q = searchQuery.trim().toLowerCase();
+                const matchSearch = !q ||
+                    v.title.toLowerCase().includes(q) ||
+                    v.category.toLowerCase().includes(q) ||
+                    v.description.toLowerCase().includes(q);
+                return matchCat && matchSearch;
+            });
+
+            filteredTitle.textContent = searchQuery.trim()
+                ? `Matokeo ya "${searchQuery.trim()}"`
+                : `${activeCategory} (Zote)`;
+            filteredCount.textContent = `${results.length} Video${results.length === 1 ? '' : 's'}`;
+
+            filteredGrid.innerHTML = '';
+            if (results.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            }
+            emptyState.classList.add('hidden');
+
+            results.forEach(video => {
+                filteredGrid.appendChild(createVideoCard(video, results));
+            });
+        }
+
+        // Category Selection Switcher
+        function selectCategory(category) {
+            activeCategory = category;
+
+            // Update Desktop Pills
+            document.querySelectorAll('.top-cat-pill').forEach(btn => {
+                const active = btn.getAttribute('data-category') === category;
+                btn.className = active
+                    ? 'top-cat-pill active px-4 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-emerald-500 to-amber-400 text-black transition'
+                    : 'top-cat-pill px-4 py-1.5 rounded-full text-xs font-semibold text-gray-300 hover:text-white transition';
+            });
+
+            // Update Mobile Pills
+            document.querySelectorAll('.mob-cat-pill').forEach(btn => {
+                const active = btn.getAttribute('data-category') === category;
+                btn.className = active
+                    ? 'mob-cat-pill active px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-gradient-to-r from-emerald-500 to-amber-400 text-black'
+                    : 'mob-cat-pill px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap glass-obsidian text-gray-300';
+            });
+
+            const spotlight = document.getElementById('bento-spotlight');
+            const shelves = document.getElementById('category-shelves-container');
+            const gallery = document.getElementById('filtered-gallery-section');
+
+            if (category === 'All' && searchQuery.trim() === '') {
+                spotlight.classList.remove('hidden');
+                shelves.classList.remove('hidden');
+                gallery.classList.add('hidden');
+                stageVideoEl.play().catch(() => {});
+            } else {
+                stageVideoEl.pause();
+                spotlight.classList.add('hidden');
+                shelves.classList.add('hidden');
+                gallery.classList.remove('hidden');
+                renderFilteredGallery();
+            }
+        }
+
+        document.querySelectorAll('.top-cat-pill, .mob-cat-pill').forEach(btn => {
+            btn.addEventListener('click', () => {
+                selectCategory(btn.getAttribute('data-category'));
+            });
+        });
+
+        // Search Input Listener
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            selectCategory(activeCategory);
+        });
+
+        // Cinema Modal Player Controls
+        const playerModal = document.getElementById('player-modal');
+        const modalVideoEl = document.getElementById('modal-video-element');
+
+        function openPlayerByVideoId(videoId, playlistContext = VIDEOS) {
+            activePlaylist = playlistContext && playlistContext.length ? playlistContext : VIDEOS;
+            const idx = activePlaylist.findIndex(v => v.id === videoId);
+            openPlayerAtIndex(idx >= 0 ? idx : 0);
+        }
+
+        function openPlayerAtIndex(index) {
+            currentPlayingIndex = index;
+            const video = activePlaylist[currentPlayingIndex];
+            if (!video) return;
+
+            stageVideoEl.pause();
+
+            document.getElementById('modal-video-title').textContent = video.title;
+            document.getElementById('modal-video-cat').textContent = video.category;
+            document.getElementById('modal-video-desc').textContent = video.description;
+            document.getElementById('modal-video-views').textContent = video.views;
+            document.getElementById('modal-video-duration').textContent = video.duration;
+
+            modalVideoEl.src = video.videoUrl;
+            playerModal.classList.remove('hidden');
+            modalVideoEl.play().catch(() => {});
+
+            // Render Related Videos inside Modal
+            const relatedStrip = document.getElementById('modal-related-strip');
+            const related = VIDEOS.filter(v => v.category === video.category && v.id !== video.id);
+            relatedStrip.innerHTML = '';
+            related.forEach(rel => {
+                const chip = document.createElement('button');
+                chip.className = 'flex items-center gap-2 p-1.5 pr-3 rounded-xl bg-white/5 hover:bg-emerald-500/20 border border-white/10 text-left shrink-0 transition';
+                chip.onclick = () => openPlayerByVideoId(rel.id, VIDEOS.filter(v => v.category === rel.category));
+                chip.innerHTML = `
+                    <video src="${rel.videoUrl}#t=1.5" preload="metadata" muted playsinline class="w-14 h-9 rounded-lg object-cover bg-black pointer-events-none"></video>
+                    <div class="max-w-[140px]">
+                        <p class="text-[11px] font-bold text-white truncate">${rel.title}</p>
+                        <p class="text-[9px] text-emerald-400">${rel.duration}</p>
+                    </div>
+                `;
+                relatedStrip.appendChild(chip);
+            });
+        }
+
+        function closePlayer() {
+            modalVideoEl.pause();
+            modalVideoEl.src = '';
+            playerModal.classList.add('hidden');
+            if (activeCategory === 'All' && searchQuery.trim() === '') {
+                stageVideoEl.play().catch(() => {});
+            }
+        }
+
+        document.getElementById('close-player-btn').addEventListener('click', closePlayer);
+        playerModal.addEventListener('click', (e) => {
+            if (e.target === playerModal) closePlayer();
+        });
+
+        document.getElementById('prev-video-btn').addEventListener('click', () => {
+            const prevIdx = (currentPlayingIndex - 1 + activePlaylist.length) % activePlaylist.length;
+            openPlayerAtIndex(prevIdx);
+        });
+
+        document.getElementById('next-video-btn').addEventListener('click', () => {
+            const nextIdx = (currentPlayingIndex + 1) % activePlaylist.length;
+            openPlayerAtIndex(nextIdx);
+        });
+
+        // Login Form Submission
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('user-name').value.trim();
+            const phone = document.getElementById('user-phone').value.trim();
+            const code = document.getElementById('unlock-code').value.trim().toUpperCase();
+
+            if (!name || !phone || !code) return;
+
+            if (VALID_UNLOCK_CODES.includes(code)) {
+                loginError.classList.add('hidden');
+                const userObj = { name, phone, code, loginTime: Date.now() };
+                localStorage.setItem('connection_tz_user', JSON.stringify(userObj));
+                showToast(`Karibu ${name}! Umeingia Connection TZ.`);
+                unlockDashboard(userObj);
+            } else {
+                loginError.classList.remove('hidden');
+                showToast('Unlock Code siyo sahihi! Njoo DM +255 790 216 244.', 'error');
+            }
+        });
+
+        // Logout
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            localStorage.removeItem('connection_tz_user');
+            stageVideoEl.pause();
+            mainDashboard.classList.add('hidden');
+            loginGate.classList.remove('hidden');
+            showToast('Umetoka kwenye akaunti yako.');
+        });
+
+        // Boot App
+        checkSession();
+    </script>
+</body>
+</html>
